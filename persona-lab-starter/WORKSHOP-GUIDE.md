@@ -25,13 +25,13 @@ Title: Improve the Persona Lab frontend
 
 Body:
 
-Make the existing Persona Lab starter feel like a clearer, more polished product experience.
+Make the existing low-fidelity Persona Lab product flow feel like a clearer, more polished product experience.
 
 - Improve layout, typography, spacing, button states, and visual hierarchy.
 - Redesign the persona cards so the selected persona is obvious.
 - Improve the task input, journey view, synthetic rationale, and friction finding.
 - Make the page work well on desktop and mobile.
-- Preserve the existing local simulation behavior.
+- Preserve the existing connected screens and local simulation behavior.
 - Use the frontend skill.
 - Keep this a local demo: no real model API, browser automation, sign-in, payment flow, or external data.
 - Keep the disclosure that this is a simulated-persona hypothesis, not human research.

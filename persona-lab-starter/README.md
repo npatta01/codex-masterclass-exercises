@@ -1,10 +1,10 @@
 # Persona Lab starter
 
-An intentionally rough React starter for the Codex Masterclass exercise.
+An intentionally low-fidelity, connected React product starter for the Codex Masterclass exercise.
 
 For the participant workflow and copyable prompts, see [WORKSHOP-GUIDE.md](./WORKSHOP-GUIDE.md).
 
-Participants improve a small simulated-persona journey: select a persona, provide a task, invoke the local demo, and inspect a short evidence trail plus synthetic rationale.
+Participants improve a complete simulated-persona product flow: map one company platform, edit personas, define tasks, invoke a local demo, inspect evidence-linked friction hypotheses, and compare the result with a neutral baseline.
 
 ## Run locally
 
