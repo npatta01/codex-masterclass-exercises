@@ -2,6 +2,8 @@
 
 An intentionally rough React starter for the Codex Masterclass exercise.
 
+For the participant workflow and copyable prompts, see [WORKSHOP-GUIDE.md](./WORKSHOP-GUIDE.md).
+
 Participants improve a small simulated-persona journey: select a persona, provide a task, invoke the local demo, and inspect a short evidence trail plus synthetic rationale.
 
 ## Run locally
