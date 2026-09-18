@@ -62,17 +62,37 @@ First create this parent issue:
 ```text
 Create this GitHub Issue. Do not implement it yet.
 
-Title: Expand the Persona Lab product story
+Title: Personalize the Persona Lab company story
 
 Body:
 
-Add lightweight product-story sections while keeping the simulation workspace as the main experience.
+Turn the deliberately generic starter into one coherent fictional company and product story. Keep the simulation workspace and simulated-research disclosure intact.
 
 Create and link these independent sub-issues:
 
-1. Refresh Persona Lab branding
-2. Add an illustrative team section
-3. Add an illustrative investors and supporters section
+1. Create a brand identity
+   - Replace `BRAND_NAME` and `TAGLINE_GOES_HERE`.
+   - Choose a simple color palette.
+   - Keep the design intentionally appropriate for a workshop prototype.
+2. Add fictional clients and teammates
+   - Replace the client placeholders with these fictional companies:
+     - `CLIENT_NAME_1`: Cart Blanche
+     - `CLIENT_NAME_2`: Scroll Patrol
+     - `CLIENT_NAME_3`: Button Mash & Co.
+     - `CLIENT_NAME_4`: The Loading Company
+   - Replace the teammate placeholders with this fictional team:
+     - `TEAM_MEMBER_1`: Paige Turner — Product Research
+     - `TEAM_MEMBER_2`: Casey Clicks — Simulation Systems
+     - `TEAM_MEMBER_3`: Drew Mockup — Product Design
+   - Generate a deterministic illustrated portrait for each teammate with the DiceBear HTTP API. Use the teammate's full name as the `seed`, the `lorelei` style, and SVG output. For example: `https://api.dicebear.com/10.x/lorelei/svg?seed=Paige%20Turner&size=160`.
+   - Download the generated SVGs into the project rather than hotlinking them at runtime. Add useful alt text and fixed image dimensions.
+   - Preserve the existing section structure.
+3. Add fictional supporters and company footer
+   - Replace the supporter placeholders with `Placeholder Partners`, `Venture Maybe`, and `The Hypothesis Fund`.
+   - Replace `COMPANY_INFO_GOES_HERE` with: `Pathlight Labs · Somewhere on the Internet · Built with synthetic personas and suspiciously confident hypotheses.`
+   - Generate simple synthetic logo marks for clients and supporters with DiceBear's `initials` or `shapes` style, using each organization name as the seed. For example: `https://api.dicebear.com/10.x/shapes/svg?seed=Cart%20Blanche&size=96`.
+   - Download the generated SVGs into the project, label them as fictional placeholder artwork, and add useful alt text and fixed image dimensions.
+   - Do not imply real endorsements or investment.
 ```
 
 Then create the three linked sub-issues, using fictional names only for teammates, organizations, investors, endorsements, and supporters.
