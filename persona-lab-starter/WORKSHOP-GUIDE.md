@@ -66,13 +66,13 @@ Title: Expand the Persona Lab product story
 
 Body:
 
-Add lightweight product-story sections while keeping the simulation workspace as the main experience.
+Redesign and personalize the rough placeholder product-story sections while keeping the simulation workspace as the main experience.
 
 Create and link these independent sub-issues:
 
 1. Refresh Persona Lab branding
-2. Add an illustrative team section
-3. Add an illustrative investors and supporters section
+2. Redesign the fictional team section
+3. Redesign the fictional investors and supporters section
 ```
 
 Then create the three linked sub-issues, using fictional names only for teammates, organizations, investors, endorsements, and supporters.

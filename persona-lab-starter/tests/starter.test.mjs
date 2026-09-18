@@ -33,3 +33,11 @@ test('starter deliberately has no GitHub Pages workflow', async () => {
   assert.match(packageJson, /"build"/);
   await assert.rejects(access(new URL('../.github/workflows/pages.yml', import.meta.url)));
 });
+
+test('landing page sketches the complete product and company story', async () => {
+  const screens = await readFile(new URL('../src/components/Screens.jsx', import.meta.url), 'utf8');
+  for (const label of ['Why Persona Lab', 'Rough product map', 'Example evidence', 'Teams sketching with us', 'Meet the team', 'Illustrative supporters']) {
+    assert.match(screens, new RegExp(label, 'i'));
+  }
+  assert.match(screens, /fictional placeholders/i);
+});
