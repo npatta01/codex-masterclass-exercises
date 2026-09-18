@@ -27,16 +27,26 @@ Engine instances and disks, and create/update the dedicated firewall rule.
 They also need permission to connect through OS Login and IAP, and to use the
 VM's service account when applicable.
 
-Each participant needs project access plus `roles/compute.osLogin` (or
-`roles/compute.osAdminLogin` only when administrative access is intended).
-IAP-based SSH also requires `roles/iap.tunnelResourceAccessor` and an existing
-VPC rule permitting TCP 22 from Google's IAP range `35.235.240.0/20` to the
-VM. This skill does not create or broaden an SSH firewall rule.
+Use this least-privilege participant access model:
+
+- Grant `roles/compute.osLogin` on the project. This permits a standard Linux
+  login and does not grant `sudo`.
+- Grant `roles/iap.tunnelResourceAccessor` on the project for IAP SSH.
+- Because the workshop VM retains its Compute Engine service account, grant
+  `roles/iam.serviceAccountUser` only on that specific service account.
+- Do not grant participants `roles/compute.osAdminLogin`, `roles/owner`,
+  `roles/editor`, `roles/iap.admin`, `roles/iap.policyAdmin`, or
+  `roles/compute.instanceAdmin.v1`.
+
+Keep the attached service account free of broad project roles such as Editor;
+otherwise a participant allowed to use it could inherit those permissions.
+IAP also needs a VPC rule permitting TCP 22 from Google's IAP range
+`35.235.240.0/20`. This skill does not create or broaden an SSH firewall rule.
 External identities may additionally require
-`roles/compute.osLoginExternalUser` on the organization. If the VM uses a
-service account, participants may also need `roles/iam.serviceAccountUser` for
-that account. Keep these grants per person; never share credentials or SSH
-keys.
+`roles/compute.osLoginExternalUser` on the organization. Keep grants per
+person; never share credentials or SSH keys. See
+[`docs/workshop-vm-access.md`](../../../docs/workshop-vm-access.md) for the
+auditable role matrix and commands.
 
 ## Resources and safety boundary
 
@@ -101,6 +111,10 @@ browser profiles. Never pre-authenticate accounts or store credentials in VM
 metadata, startup scripts, images, or repository files. Software provisioning
 may occur during setup; authentication must not run during creation, startup,
 or provisioning.
+
+OS Login derives a different Linux account from each participant's Google
+identity. A participant granted only `roles/compute.osLogin` cannot use OS
+Login to obtain `sudo` and does not log in as the infrastructure creator.
 
 For previews, Codex selects an unused port in 3000-3999, binds the development
 server to `0.0.0.0`, keeps it running until intentionally stopped, and reports
