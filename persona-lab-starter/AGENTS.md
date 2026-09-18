@@ -25,3 +25,5 @@ prototype on the workshop VM.
 - Participants connect through Google Cloud OS Login. Keep every participant's
   files, processes, GitHub authentication, Google authentication, Codex
   authentication, and configuration inside that participant's Linux account.
+- Participants are standard OS Login users without sudo. Never ask for sudo,
+  attempt privilege escalation, or operate from another participant's account.
