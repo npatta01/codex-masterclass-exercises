@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ubuntu Dev VM Provisioning"
+  short_description: "Provision workshop tools and preview firewall"
+  default_prompt: "Use $vm-dev-environment to provision shared Ubuntu development tools or enable the workshop VM's public preview ports."
