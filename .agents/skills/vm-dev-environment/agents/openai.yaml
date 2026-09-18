@@ -1,0 +1,4 @@
+interface:
+  display_name: "Google Cloud Workshop VM"
+  short_description: "Create the isolated shared workshop VM"
+  default_prompt: "Use $vm-dev-environment to dry-run or create the Google Cloud workshop VM and provision its shared development tools."
