@@ -1,73 +1,115 @@
 ---
 name: vm-dev-environment
-description: Use when the workshop infrastructure creator needs to provision a shared Ubuntu LTS development VM with common command-line tools or enable its public prototype-preview firewall range.
+description: Use when the workshop infrastructure creator needs to plan, create, or maintain the repository's shared Google Cloud Ubuntu development VM and its public prototype-preview range.
 ---
 
-# Provision an Ubuntu Development VM
+# Create the Workshop Development VM
 
-Use this project skill only for workshop infrastructure. It prepares a shared
-Ubuntu LTS VM for development; it is not a developer workstation setup.
+This repository skill is the canonical VM setup for the workshop. It is for
+the infrastructure creator, who runs it before participants arrive. The
+default Google Compute Engine VM is sized for 10 concurrent participants:
 
-## Safety boundary
+- Ubuntu 24.04 LTS on `e2-standard-16` (16 vCPUs, 64 GB RAM)
+- 200 GB `pd-balanced` boot disk and an ephemeral external IPv4 address
+- Google Cloud OS Login for separate participant Linux identities
+- public prototype previews on TCP 3000-3999
 
-Install shared tools only: Git, Python 3 (including venv and pip), uv in
-`/usr/local/bin`, Node.js 22/npm from NodeSource, GitHub CLI, Google Cloud CLI,
-and Codex. Never authenticate workshop users. Do not run `gh auth login`,
-`gcloud auth login`, or `codex login`; do not copy, accept, log, or handle
-credentials, tokens, SSH keys, device codes, browser profiles, or `auth.json`.
+The script does not create static `participant01`-style accounts. Participants
+already granted access to the project connect with `gcloud compute ssh`; OS
+Login maps each Google identity to its own Linux account.
 
-The shared uv executable is global, while each user's uv cache, Python
-installations, and project environments remain under that user's account.
+## Required access
 
-## Install shared tools
+The creator must already be authenticated with `gcloud` and have permission to
+inspect the project, enable `compute.googleapis.com`, create/read Compute
+Engine instances and disks, and create/update the dedicated firewall rule.
+They also need permission to connect through OS Login and use the VM's service
+account when applicable.
 
-1. Confirm that the target is an Ubuntu LTS VM and that the requester is the
-   authorized infrastructure creator.
-2. From this skill directory, inspect the plan:
+Each participant needs project access plus `roles/compute.osLogin` (or
+`roles/compute.osAdminLogin` only when administrative access is intended).
+External identities may additionally require
+`roles/compute.osLoginExternalUser` on the organization. If the VM uses a
+service account, participants may also need `roles/iam.serviceAccountUser` for
+that account. Keep these grants per person; never share credentials or SSH
+keys.
 
-   ```bash
-   sudo scripts/provision-ubuntu-dev-tools.sh --dry-run
-   ```
+## Resources and safety boundary
 
-3. After the creator authorizes installation, run:
+The apply workflow may enable the Compute Engine API, create one named VM, and
+create or update one dedicated ingress firewall rule targeting only the
+configured network tag. It never changes unrelated firewall rules or opens
+all ports. Existing named VMs are inspected and reused only when compatible;
+the script never silently replaces or deletes them.
 
-   ```bash
-   sudo scripts/provision-ubuntu-dev-tools.sh
-   ```
+Public TCP 3000-3999 is reachable from `0.0.0.0/0`. Any process bound to
+`0.0.0.0` in that range is therefore internet-accessible. Do not serve secrets
+or sensitive data, and stop previews after use. Costs vary by zone and running
+time; the VM and 200 GB disk continue accruing charges while retained.
 
-The helper verifies every installed command and exits on failure. It does not
-configure user accounts, authentication, repositories, cloud projects, or SSH
-access.
+## Run
 
-## Enable public prototype previews
-
-When the infrastructure creator authorizes public workshop previews, run the
-firewall helper from a machine where the creator is already authenticated to
-Google Cloud. Inspect its plan first:
+Review the complete proposal without changing Google Cloud:
 
 ```bash
-scripts/ensure-gcp-preview-firewall.sh \
-  --project PROJECT_ID --zone ZONE --instance VM_NAME
+.agents/skills/vm-dev-environment/scripts/create-gcp-workshop-vm.sh \
+  --project PROJECT_ID \
+  --zone us-central1-a \
+  --dry-run
 ```
 
-Then apply the reviewed plan:
+After the creator explicitly authorizes the displayed configuration, apply it:
 
 ```bash
-scripts/ensure-gcp-preview-firewall.sh \
-  --project PROJECT_ID --zone ZONE --instance VM_NAME --apply
+.agents/skills/vm-dev-environment/scripts/create-gcp-workshop-vm.sh \
+  --project PROJECT_ID \
+  --zone us-central1-a \
+  --apply
 ```
 
-The helper adds a dedicated network tag to the chosen existing VM and creates
-or updates only the dedicated ingress firewall rule. It permits public TCP
-ports 3000-3999 for tagged instances. It does not create a VM, authenticate a
-user, change unrelated firewall rules, or open other ports.
+Run `scripts/create-gcp-workshop-vm.sh --help` for overrides. The helper waits
+for SSH, transfers `provision-ubuntu-dev-tools.sh`, and installs shared Git,
+Python, uv, Node/npm, GitHub CLI, Google Cloud CLI, and Codex binaries. It does
+not authenticate participants.
 
-This is an infrastructure-creator operation. It uses the creator's existing
-`gcloud` authentication and never handles workshop-user credentials.
+## Participant access and authentication
 
-## Do not use this skill for
+Each participant authenticates `gcloud` on their own computer and connects:
 
-- macOS, Windows, non-Ubuntu, or non-LTS hosts.
-- Developer self-service setup or any task requiring sign-in.
-- Credential migration, secret storage, browser-profile copying, or device
-  authorization.
+```bash
+gcloud compute ssh VM_NAME --project PROJECT_ID --zone ZONE
+```
+
+Inside their own OS Login account, each participant separately runs only the
+sign-ins they need:
+
+```bash
+gh auth login
+gcloud auth login
+codex login --device-auth
+```
+
+Never share credentials, tokens, SSH keys, device codes, `auth.json`, or
+browser profiles. Never pre-authenticate accounts or store credentials in VM
+metadata, startup scripts, images, or repository files. Software provisioning
+may occur during setup; authentication must not run during creation, startup,
+or provisioning.
+
+For previews, Codex selects an unused port in 3000-3999, binds the development
+server to `0.0.0.0`, keeps it running until intentionally stopped, and reports
+`http://VM_EXTERNAL_IP:SELECTED_PORT`. Codex never changes the firewall.
+
+## After the workshop
+
+Stop the VM to stop compute charges while retaining its disk:
+
+```bash
+gcloud compute instances stop VM_NAME --project PROJECT_ID --zone ZONE
+```
+
+Deleting the VM or firewall rule is destructive and is outside this skill's
+apply workflow. Do it only after the infrastructure creator explicitly
+confirms the exact project, zone, VM, and firewall-rule names. A typical
+confirmed cleanup uses `gcloud compute instances delete` followed by
+`gcloud compute firewall-rules delete`; deletion cannot be inferred from a
+request merely to stop or finish the workshop.
