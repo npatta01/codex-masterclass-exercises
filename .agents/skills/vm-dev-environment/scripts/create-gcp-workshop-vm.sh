@@ -2,9 +2,9 @@
 # Create and provision the shared Google Cloud workshop VM. Dry-run is the default.
 set -euo pipefail
 
-project=""
-zone=""
-vm_name="codex-workshop"
+project="np-codex-workshop"
+zone="us-east4-c"
+vm_name="codex-vm"
 machine_type="e2-standard-16"
 disk_size="200"
 disk_type="pd-balanced"
@@ -17,14 +17,12 @@ apply=false
 
 usage() {
   cat <<'EOF'
-Usage: create-gcp-workshop-vm.sh --project PROJECT_ID --zone ZONE [options]
-
-Required:
-  --project PROJECT_ID       Google Cloud project
-  --zone ZONE                Compute Engine zone
+Usage: create-gcp-workshop-vm.sh [options]
 
 Options:
-  --name NAME                VM name (default: codex-workshop)
+  --project PROJECT_ID       Google Cloud project (default: np-codex-workshop)
+  --zone ZONE                Compute Engine zone (default: us-east4-c)
+  --name NAME                VM name (default: codex-vm)
   --machine-type TYPE        Machine type (default: e2-standard-16)
   --disk-size GB             Boot disk size in GB (default: 200)
   --network NETWORK          VPC network (default: default)
@@ -67,8 +65,6 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-[[ -n "$project" ]] || die "--project is required."
-[[ -n "$zone" ]] || die "--zone is required."
 [[ "$disk_size" =~ ^[1-9][0-9]*$ ]] || die "--disk-size must be a positive integer."
 command -v gcloud >/dev/null 2>&1 || die "gcloud is required on the infrastructure creator's machine."
 
@@ -81,7 +77,7 @@ script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 provisioner="$script_dir/provision-ubuntu-dev-tools.sh"
 [[ -r "$provisioner" ]] || die "provisioner not found: $provisioner"
 
-participant_ssh="gcloud compute ssh $vm_name --project $project --zone $zone"
+participant_ssh="gcloud compute ssh $vm_name --project $project --zone $zone --tunnel-through-iap"
 
 print_configuration() {
   printf '%s\n' \
@@ -212,6 +208,7 @@ for attempt in $(seq 1 30); do
   if gcloud compute ssh "$vm_name" \
     --project "$project" \
     --zone "$zone" \
+    --tunnel-through-iap \
     --command true \
     --quiet >/dev/null 2>&1; then
     ssh_ready=true
@@ -226,10 +223,12 @@ remote_provisioner="/tmp/codex-workshop-provision-ubuntu-dev-tools.sh"
 gcloud compute scp "$provisioner" "${vm_name}:${remote_provisioner}" \
   --project "$project" \
   --zone "$zone" \
+  --tunnel-through-iap \
   --quiet
 gcloud compute ssh "$vm_name" \
   --project "$project" \
   --zone "$zone" \
+  --tunnel-through-iap \
   --command "sudo bash '$remote_provisioner' && rm -f '$remote_provisioner'" \
   --quiet
 
@@ -254,5 +253,6 @@ printf '%s\n' "Installed tool versions:"
 gcloud compute ssh "$vm_name" \
   --project "$project" \
   --zone "$zone" \
+  --tunnel-through-iap \
   --command "git --version; python3 --version; pip3 --version; uv --version; node --version; npm --version; gh --version | head -n 1; gcloud --version | head -n 1; codex --version" \
   --quiet
