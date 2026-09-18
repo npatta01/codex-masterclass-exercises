@@ -40,4 +40,14 @@ test('landing page sketches the complete product and company story', async () =>
     assert.match(screens, new RegExp(label, 'i'));
   }
   assert.match(screens, /fictional placeholders/i);
+  for (const placeholder of ['BRAND_NAME', 'TAGLINE_GOES_HERE', 'CLIENT_NAME_1', 'TEAM_MEMBER_1', 'SUPPORTER_NAME_1', 'COMPANY_INFO_GOES_HERE']) {
+    assert.match(screens, new RegExp(placeholder));
+  }
+});
+
+test('task 3 defines one parent change and three concrete parallel tickets', async () => {
+  const guide = await readFile(new URL('../WORKSHOP-GUIDE.md', import.meta.url), 'utf8');
+  for (const title of ['Personalize the Persona Lab company story', 'Create a brand identity', 'Add fictional clients and teammates', 'Add fictional supporters and company footer']) {
+    assert.match(guide, new RegExp(title, 'i'));
+  }
 });

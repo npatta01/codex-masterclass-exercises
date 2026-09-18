@@ -62,17 +62,26 @@ First create this parent issue:
 ```text
 Create this GitHub Issue. Do not implement it yet.
 
-Title: Expand the Persona Lab product story
+Title: Personalize the Persona Lab company story
 
 Body:
 
-Redesign and personalize the rough placeholder product-story sections while keeping the simulation workspace as the main experience.
+Turn the deliberately generic starter into one coherent fictional company and product story. Keep the simulation workspace and simulated-research disclosure intact.
 
 Create and link these independent sub-issues:
 
-1. Refresh Persona Lab branding
-2. Redesign the fictional team section
-3. Redesign the fictional investors and supporters section
+1. Create a brand identity
+   - Replace `BRAND_NAME` and `TAGLINE_GOES_HERE`.
+   - Choose a simple color palette.
+   - Keep the design intentionally appropriate for a workshop prototype.
+2. Add fictional clients and teammates
+   - Replace the `CLIENT_NAME_*`, `TEAM_MEMBER_*`, and `ROLE_GOES_HERE` placeholders.
+   - Use fictional names only.
+   - Preserve the existing section structure.
+3. Add fictional supporters and company footer
+   - Replace the `SUPPORTER_NAME_*` placeholders.
+   - Replace `COMPANY_INFO_GOES_HERE` with fictional company information.
+   - Do not imply real endorsements or investment.
 ```
 
 Then create the three linked sub-issues, using fictional names only for teammates, organizations, investors, endorsements, and supporters.
