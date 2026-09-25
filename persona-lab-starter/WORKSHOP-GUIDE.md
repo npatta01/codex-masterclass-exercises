@@ -26,7 +26,7 @@ Do not change the application yet. Return the repository URL when finished.
 
 ## Task 1 — Improve the frontend
 
-Turn the rough starter into a more polished website. You'll practice describing a visual change in a GitHub issue, then asking one Codex task to implement it and show you the result in a PR.
+Modernize the existing landing page's presentation while keeping its workshop placeholders. You'll practice describing a focused visual change in a GitHub issue, then asking one Codex task to implement it and show you the result in a PR. Task 3 replaces the placeholders with the supplied company story.
 
 ### 1. Preview your new project
 
@@ -34,41 +34,36 @@ In the `persona-lab` repository you created in Step 0, ask Codex to show you the
 
 ```text
 In my new persona-lab repository, start a preview in the sandbox following
-the repository's preview instructions. Check that the paper mock loads, then
-give me browser-accessible URLs for it and the prepared asset page. Keep the
-preview running while I review.
+the repository's preview instructions. Check that the connected paper mock
+loads, then give me its browser-accessible URL. Keep the preview running
+while I review.
 ```
 
-On the preview URL, open:
+Open `/` on the preview URL to click through the Landing, Workspace, and Results paper sketches.
 
-- `/` — click through the Landing, Workspace, and Results paper sketches.
-- `/workshop/index.html` — view the supplied logo, portraits, fictional client stories, and supporter logos.
-
-The asset map is in `public/workshop/ASSETS.md`, and the copy is in `public/workshop/content.json`. The sketches are layout references; the content file supersedes their older placeholder names. You do not need to upload assets, invent a byline, or use an image service. Choose your own palette and typography when you begin the design exercise.
+Task 1 uses the sketch as a layout reference. The prepared logo, portraits, client stories, and supporters are for Task 3.
 
 ### 2. Create the issue
 
 ```text
-Create a GitHub issue called "Improve the Persona Lab frontend".
-The starter is deliberately rough. I'd like it to feel like a clearer,
-more polished product, with a consistent theme.
+Create a GitHub issue called "Modernize the Persona Lab landing page".
+The starter is deliberately rough. I want to modernize its visual design,
+while leaving the workshop content placeholders for later issues.
 
-- Improve layout, typography, spacing, button states, and visual hierarchy.
-- Focus on the landing page, using public/workshop/mock/landing.png as
-  the rough layout reference. Leave the other screens for later exercises.
-- Use the supplied Persona Lab logo, tagline, team, fictional client stories,
-  and supporters from public/workshop/content.json. All referenced assets
-  are inside public/workshop/. Do not ask me to supply assets or a byline.
-- Include the female fox CEO, Codex CTO, and dog product lead.
-- Put the supplied animal portraits alongside the customer testimonials,
-  with the label "Fictional customers. Wildly fictional results."
-- Make the page work well on desktop and mobile.
-- Preserve the connected Landing, Workspace, and Results journey. The paper mock has no live simulation.
-- Use the frontend skill.
-- Keep this a self-contained demo: no real model API, browser automation, sign-in,
-  payment flow, or external data.
-- Keep the disclosure that this is a simulated-persona hypothesis, not human
-  research.
+- Use public/workshop/mock/landing.png as the rough layout reference.
+- Improve only the landing page's layout, typography, spacing, visual
+  hierarchy, and button and focus states. Make it work on desktop and mobile.
+- Keep the existing landing-page sections and placeholder content. Retain
+  labels such as BRAND_NAME, TAGLINE_GOES_HERE, client and team placeholders,
+  supporter placeholders, and COMPANY_INFO_GOES_HERE. If turning the sketch
+  into HTML, carry these placeholders into the new page.
+- Do not add the prepared Persona Lab logo, animal portraits, client stories,
+  team members, supporter logos, or final company copy. Those are for Task 3.
+- Do not add new sections, screens, product features, or simulation behavior.
+  Keep the Landing → Workspace → Results links working and leave Workspace
+  and Results for later exercises.
+- Keep any simulated-persona/not-human-research disclosure visible.
+- Use the frontend skill to implement and check this visual change.
 
 Just create the issue for now and send me the link.
 ```
@@ -76,8 +71,9 @@ Just create the issue for now and send me the link.
 ### 3. Work on the issue
 
 ```text
-Work on <ISSUE_URL> in this Codex task. Use the frontend skill to
-improve the design, check it in the browser on desktop and mobile,
+Work on <ISSUE_URL> in this Codex task. Modernize only the existing landing
+page's visual design; preserve its placeholders and the connected paper-mock
+journey. Use the frontend skill, check it in the browser on desktop and mobile,
 and open a PR linked to the issue. Leave the PR open for review.
 ```
 
@@ -121,10 +117,8 @@ Verify that the page and its assets load, then send me the URL.
 
 Give the fictional company a brand, clients, team, and supporters. You'll split the work into three GitHub issues and use separate Codex tasks, each with its own worktree and PR. Your original task coordinates their progress and passes the brand decisions to the other tasks.
 
-The content and assets are already prepared. This is an alternative way to
-divide the landing-page work from Task 1, not a requirement to redo it.
-If the landing page is already finished, use the Workspace and Results
-practice exercise below instead.
+The content and assets are already prepared. This task fills in the brand,
+clients, team, and supporters left as placeholders in Task 1.
 
 ### 1. Create the issue
 

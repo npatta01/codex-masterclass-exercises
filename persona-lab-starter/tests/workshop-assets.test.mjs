@@ -21,6 +21,10 @@ test('guide uses prepared assets instead of asking for new portrait generation',
   const preview = guide.indexOf('### 1. Preview your new project');
   const issue = guide.indexOf('### 2. Create the issue');
   assert.ok(project >= 0 && project < preview && preview < issue);
+  const taskOne = guide.split('## Task 1 — Improve the frontend')[1].split('## Task 2 — Deploy with GitHub Pages')[0];
+  assert.match(taskOne, /preserve its placeholders/i);
+  assert.match(taskOne, /Do not add the prepared Persona Lab logo/);
+  assert.match(taskOne, /Those are for Task 3/);
 });
 test('the root opens the connected paper mock', async () => {
   const entry = await readFile(new URL('../index.html', import.meta.url), 'utf8');
