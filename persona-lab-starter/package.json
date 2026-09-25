@@ -4,6 +4,9 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "prepare:workshop": "node scripts/prepare-workshop.mjs",
+    "predev": "npm run prepare:workshop",
+    "prebuild": "npm run prepare:workshop",
     "dev": "vite",
     "build": "vite build",
     "test": "node --test tests/*.test.mjs"

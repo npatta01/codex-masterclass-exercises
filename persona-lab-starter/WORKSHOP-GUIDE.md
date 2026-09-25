@@ -2,6 +2,21 @@
 
 Each exercise has two prompts: **1. Create the issue** and **2. Work on the issue**. Send them one at a time. After the first prompt returns an issue URL, use it in place of `<ISSUE_URL>` in the second prompt. Use your new workshop repository for every issue and PR.
 
+## Start with the paper mock and prepared assets
+
+Run `npm install` and `npm run dev` inside this folder. On the local server, open:
+
+- `/workshop/mock/index.html` — connected Landing, Workspace, and Results sketches.
+- `/workshop/index.html` — the new Persona Lab logo, character portraits, fictional client and supporter logos, and customer stories.
+
+All files are included under `public/workshop/`. Read
+`public/workshop/ASSETS.md` for the asset map and
+`public/workshop/content.json` for the supplied copy. The sketches are layout
+references; their older placeholder names are superseded by this content file.
+You do not need to upload assets, invent a byline, or use an image service.
+Choose your own website palette and typography. Keep the starter rough until
+you begin the design exercise.
+
 ## Step 0 — Create your project
 
 Start with your own copy of the workshop app. This gives you a repository where you can create issues, review PRs, and publish the finished site.
@@ -36,9 +51,14 @@ The starter is deliberately rough. I'd like it to feel like a clearer,
 more polished product, with a consistent theme.
 
 - Improve layout, typography, spacing, button states, and visual hierarchy.
-- Redesign the persona cards so the selected persona is obvious.
-- Improve the task input, journey view, synthetic rationale, and friction
-  finding.
+- Focus on the landing page, using public/workshop/mock/landing.png as
+  the rough layout reference. Leave the other screens for later exercises.
+- Use the supplied Persona Lab logo, tagline, team, fictional client stories,
+  and supporters from public/workshop/content.json. All referenced assets
+  are inside public/workshop/. Do not ask me to supply assets or a byline.
+- Include the female fox CEO, Codex CTO, and dog product lead.
+- Put the supplied animal portraits alongside the customer testimonials,
+  with the label "Fictional customers. Wildly fictional results."
 - Make the page work well on desktop and mobile.
 - Preserve the existing connected screens and local simulation behavior.
 - Use the frontend skill.
@@ -98,6 +118,11 @@ Verify that the page and its assets load, then send me the URL.
 
 Give the fictional company a brand, clients, team, and supporters. You'll split the work into three GitHub issues and use separate Codex tasks, each with its own worktree and PR. Your original task coordinates their progress and passes the brand decisions to the other tasks.
 
+The content and assets are already prepared. This is an alternative way to
+divide the landing-page work from Task 1, not a requirement to redo it.
+If the landing page is already finished, use the Workspace and Results
+practice exercise below instead.
+
 ### 1. Create the issue
 
 ```text
@@ -111,46 +136,37 @@ disclosure intact.
 Here's what I'd like in each sub-issue:
 
 1. Create a brand identity
-   - Replace `BRAND_NAME` and `TAGLINE_GOES_HERE`.
+   - Use the Persona Lab name, logo, and tagline supplied in
+     public/workshop/content.json and public/workshop/logos/persona-lab.svg.
    - Choose a simple color palette.
    - Keep the design intentionally appropriate for a workshop prototype.
 
 2. Add fictional clients and teammates
 
-   - Replace the client placeholders with these fictional companies:
-     - `CLIENT_NAME_1`: Cart Blanche
-     - `CLIENT_NAME_2`: Scroll Patrol
-     - `CLIENT_NAME_3`: Button Mash & Co.
-     - `CLIENT_NAME_4`: The Loading Company
+   - Use Acorn Commerce, Pawprint, Slow & Steady, and Tall Order.
+     Their logos, animal portraits, and absurd Persona Lab success stories
+     are supplied in public/workshop/content.json.
 
    - Replace the teammate placeholders with this fictional team:
-     - `TEAM_MEMBER_1`: Paige Turner — Product Research
-     - `TEAM_MEMBER_2`: Casey Clicks — Simulation Systems
-     - `TEAM_MEMBER_3`: Drew Mockup — Product Design
+     - Felix Pivot — CEO & cofounder (female fox)
+     - Codex McCompile — CTO & cofounder (Codex robot)
+     - Barkley Clicks — Head of Product (dog)
 
-   - Generate a deterministic illustrated portrait for each teammate with the
-     DiceBear HTTP API. Use the teammate's full name as the `seed`, the
-     `lorelei` style, and SVG output. For example:
-     `https://api.dicebear.com/10.x/lorelei/svg?seed=Paige%20Turner&size=160`.
-   - Download the generated SVGs into the project rather than hotlinking them
-     at runtime. Add useful alt text and fixed image dimensions.
-   - Add fictional client logo marks with DiceBear's `initials` or `shapes`
-     style, using each client name as the seed. Save the SVGs locally too.
+   - Use the supplied files in public/workshop/characters/ and logos/.
+     No new images, uploads, or image-service calls are needed.
+   - Add useful alt text and fixed image dimensions.
+   - Keep "Fictional customers. Wildly fictional results." beside the quotes.
    - Preserve the existing section structure.
 
 3. Add fictional supporters and company footer
 
    - Replace the supporter placeholders with `Placeholder Partners`, `Venture
      Maybe`, and `The Hypothesis Fund`.
-   - Replace `COMPANY_INFO_GOES_HERE` with: `Pathlight Labs · Somewhere on the
+   - Replace `COMPANY_INFO_GOES_HERE` with: `Persona Lab · Somewhere on the
      Internet · Built with synthetic personas and suspiciously confident
      hypotheses.`
-   - Generate simple synthetic logo marks for supporters with DiceBear's
-     `initials` or `shapes` style, using each organization name as the seed.
-     For example:
-     `https://api.dicebear.com/10.x/shapes/svg?seed=Placeholder%20Partners&size=96`.
-   - Download the generated SVGs into the project, label them as fictional
-     placeholder artwork, and add useful alt text and fixed image dimensions.
+   - Use the prepared supporter SVGs in public/workshop/logos/.
+     Add useful alt text and fixed image dimensions.
    - Do not imply real endorsements or investment.
 
 Write these as clear, readable issues with a short checklist for each.
@@ -186,6 +202,22 @@ Leave the PRs open for review.
 ```
 
 The separate tasks don't need to message one another directly. In the Codex desktop app, the coordinating task can read their updates and send follow-up messages. Sharing a decision does not transfer code between worktrees; code changes still need to be integrated through Git. If task messaging isn't available in your environment, copy the brand update into each task yourself.
+
+### Practice: create the Workspace and Results tasks yourself
+
+Try the same workflow with two larger pieces of the site. Create one issue
+for the Workspace overview and one for Example results, using
+`public/workshop/mock/workspace.png` and `results.png` as the references.
+Keep the sample data local and label results as simulated hypotheses.
+
+Start a separate Codex task for each issue. Give both tasks the theme from
+your landing page, the prepared asset folder, and their own worktree.
+Ask each to own its screen component and avoid changing shared navigation
+or global styles without coordinating. Review their PRs together and
+check the Landing → Workspace → Results → Workspace journey.
+
+You write the issue-creation and follow-up prompts this time. No backend,
+live persona execution, or real research is required.
 
 ## Task 4 — Review the UI with subagents
 

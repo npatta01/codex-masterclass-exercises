@@ -1,0 +1,23 @@
+{
+  "brand": {"name":"Persona Lab","tagline":"Meet your next product decision.","description":"Explore a product journey with simulated personas. Spot possible friction, ask better questions, and decide what to test with real people.","logo":"logos/persona-lab.svg"},
+  "disclosure":"Simulated-persona hypotheses, not validated human research.",
+  "testimonialDisclosure":"Fictional customers. Wildly fictional results.",
+  "team":[
+    {"name":"Felix Pivot","role":"CEO & cofounder","character":"Female fox","image":"characters/fox-ceo.png"},
+    {"name":"Codex McCompile","role":"CTO & cofounder","character":"Codex robot","image":"characters/codex-cto.png"},
+    {"name":"Barkley Clicks","role":"Head of Product","character":"Dog","image":"characters/dog-product.png"}
+  ],
+  "customers":[
+    {"company":"Acorn Commerce","logo":"logos/acorn-commerce.svg","image":"characters/bear.png","character":"Bear in a blue coat","quote":"Thanks to Persona Lab, conversions increased by 7 million percent. We’ve stopped checking the math."},
+    {"company":"Pawprint","logo":"logos/pawprint.svg","image":"characters/cat.png","character":"Cat in a purple jacket","quote":"We finally built a product our users—and their agents—love."},
+    {"company":"Slow & Steady","logo":"logos/slow-steady.svg","image":"characters/turtle.png","character":"Turtle with an orange scarf","quote":"Persona Lab found our checkout friction in seconds. Our committee had been investigating since 2019."},
+    {"company":"Tall Order","logo":"logos/tall-order.svg","image":"characters/giraffe.png","character":"Giraffe in a blue jacket","quote":"Our customers are asking us to take their money. Finance is overwhelmed."}
+  ],
+  "supporters":[
+    {"name":"Placeholder Partners","logo":"logos/placeholder-partners.svg"},
+    {"name":"Venture Maybe","logo":"logos/venture-maybe.svg"},
+    {"name":"The Hypothesis Fund","logo":"logos/hypothesis-fund.svg"}
+  ],
+  "extraCharacters":["owl","panda","chameleon"],
+  "footer":"Persona Lab · Somewhere on the Internet · Built with synthetic personas and suspiciously confident hypotheses."
+}

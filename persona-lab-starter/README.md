@@ -13,6 +13,17 @@ npm install
 npm run dev
 ```
 
+## Prepared paper prototype and asset pack
+
+On the local server, open `/workshop/mock/index.html` for the connected
+pencil-sketch mock, `/workshop/index.html` for the supplied brand logo,
+characters, client stories, and supporter logos, and
+`/workshop/instructions.html` for the workshop prompts.
+
+See [the asset map](public/workshop/ASSETS.md). No participant uploads or
+image generation are required. The paper prototype is a design reference,
+not a finished website. The original React demo at `/` is unchanged.
+
 ## Exercise boundaries
 
 - This app has no real browser or model integration.
