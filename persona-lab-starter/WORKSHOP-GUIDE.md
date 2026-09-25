@@ -6,7 +6,7 @@ Each exercise has two prompts: **1. Create the issue** and **2. Work on the issu
 
 Run `npm install` and `npm run dev` inside this folder. On the local server, open:
 
-- `/workshop/mock/index.html` — connected Landing, Workspace, and Results sketches.
+- `/` (or `/workshop/mock/index.html`) — connected Landing, Workspace, and Results sketches.
 - `/workshop/index.html` — the new Persona Lab logo, character portraits, fictional client and supporter logos, and customer stories.
 
 All files are included under `public/workshop/`. Read
@@ -60,7 +60,7 @@ more polished product, with a consistent theme.
 - Put the supplied animal portraits alongside the customer testimonials,
   with the label "Fictional customers. Wildly fictional results."
 - Make the page work well on desktop and mobile.
-- Preserve the existing connected screens and local simulation behavior.
+- Preserve the connected Landing, Workspace, and Results journey. The paper mock has no live simulation.
 - Use the frontend skill.
 - Keep this a local demo: no real model API, browser automation, sign-in,
   payment flow, or external data.
@@ -130,7 +130,7 @@ I'd like to replace the landing page placeholders with a playful
 fictional company. Create a parent GitHub issue called
 "Personalize the Persona Lab company story" and three linked sub-issues so we
 can
-work on them separately. Keep the existing demo behavior and research
+work on them separately. Keep the connected paper prototype and research
 disclosure intact.
 
 Here's what I'd like in each sub-issue:
@@ -212,7 +212,7 @@ Keep the sample data local and label results as simulated hypotheses.
 
 Start a separate Codex task for each issue. Give both tasks the theme from
 your landing page, the prepared asset folder, and their own worktree.
-Ask each to own its screen component and avoid changing shared navigation
+Ask each to own its page and avoid changing shared navigation
 or global styles without coordinating. Review their PRs together and
 check the Landing → Workspace → Results → Workspace journey.
 
@@ -235,7 +235,7 @@ readable, form fields have clear labels, and you can navigate with a keyboard
 and see what's focused.
 
 Fix the problems you find and check the result in the browser. Keep this
-focused on the UI; leave the persona and simulation behavior as it is.
+focused on the UI; keep results clearly labeled as synthetic examples.
 
 Just create the issue for now and send me the link.
 ```

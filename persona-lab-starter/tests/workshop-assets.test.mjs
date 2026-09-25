@@ -18,3 +18,12 @@ test('guide uses prepared assets instead of asking for new portrait generation',
   assert.doesNotMatch(guide, /DiceBear/);
   assert.match(guide, /Workspace and Results tasks yourself/);
 });
+test('the root opens the connected paper mock', async () => {
+  const entry = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+  const paper = await readFile(new URL('mock/index.html', root), 'utf8');
+  assert.match(entry, /location\.replace\('workshop\/mock\/index\.html'/);
+  for (const page of ['landing', 'workspace', 'results']) {
+    assert.match(paper, new RegExp(`href="#${page}"`));
+    assert.match(paper, new RegExp(`${page}\\.png`));
+  }
+});
