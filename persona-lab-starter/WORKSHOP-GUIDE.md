@@ -99,24 +99,26 @@ Then create the three linked sub-issues, using fictional names only for teammate
 
 After the issues exist, open a separate Codex task/thread for each sub-issue. Give each task only its matching issue and ask it to implement only that work. Run the tasks in parallel when their file changes do not overlap. Finally, review the combined result, resolve conflicts, test the app, inspect it in a browser, then commit and push.
 
-## Task 4 — Create the Invoke Persona issue
+## Task 4 — Review the UI with subagents
+
+After improving the frontend, create the issue first:
 
 ```text
 Create this GitHub Issue. Do not implement it yet.
 
-Title: Make the Invoke Persona experience clear and useful
+Title: Make the site work better on mobile and easier to use
 
 Body:
 
-Create a focused interaction where someone can:
+The site needs a quick usability pass. On smaller screens, check for anything that overflows, feels cramped, or is hard to tap. Also check that text is readable, form fields have clear labels, and you can navigate with a keyboard and see what's focused.
 
-1. choose a persona;
-2. write or edit a task;
-3. click Invoke persona;
-4. see a running state;
-5. see a completed journey with timestamped actions;
-6. read synthetic rationale tied to the journey;
-7. see one possible friction finding.
-
-Keep the interaction local and deterministic. Do not add a real model API, browser automation, sign-in, payment flow, or external data. Clearly state that the journey and rationale are simulated-persona hypotheses, not human research.
+Fix the problems you find and check the result in the browser. Keep this focused on the UI; leave the persona and simulation behavior as it is.
 ```
+
+Once the issue exists, replace `<ISSUE_URL>` below with its URL and send this follow-up in the same Codex task:
+
+```text
+Work on <ISSUE_URL> using two subagents—one to review mobile layout and visual consistency, and another to review accessibility. Have them inspect the site in the browser and report what they find without editing files. Then make the fixes yourself, verify them in the browser, and open a PR linked to the issue.
+```
+
+This exercise uses one Codex task and one GitHub Issue. The task delegates the two reviews to subagents, brings their findings together, and produces one PR.
