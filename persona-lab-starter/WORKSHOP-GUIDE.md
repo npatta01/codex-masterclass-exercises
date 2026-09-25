@@ -98,6 +98,8 @@ The PR is merged. Check the deployment and open the live site.
 Verify that the page and its assets load, then send me the URL.
 ```
 
+🎉 **Your site is live!** Bookmark the URL and share it if you like. [GitHub Pages gives public repositories a free publishing option on GitHub Free](https://docs.github.com/en/pages/quickstart). Each future change merged into `main` starts a new deployment; the live site updates when the [GitHub Actions workflow succeeds](https://docs.github.com/en/get-started/start-your-journey/deploying-your-website-automatically).
+
 ## C — Modernize the landing page 🎨
 
 Start another Codex task in the same project with **New remote worktree** selected. You can do this while B is running. Keep the landing page's placeholder text so D can fill it in later.
@@ -123,7 +125,9 @@ while leaving the workshop content placeholders for later issues.
   and Results for later exercises.
 - Keep any simulated-persona/not-human-research disclosure visible.
 - Leave CI/CD and GitHub Pages changes to the parallel deployment task.
-- Use the frontend skill to implement and check this visual change.
+- Use the Build Web Apps plugin's Frontend App Builder skill
+  (build-web-apps:frontend-app-builder) for the visual redesign.
+  Check the result on desktop and mobile.
 
 Just create the issue for now and send me the link.
 ```
@@ -133,7 +137,8 @@ Just create the issue for now and send me the link.
 ```text
 Work on the issue you just created above in this Codex task. Modernize only
 the existing landing page's visual design; preserve its placeholders and the
-connected paper mock journey. Use the frontend skill. Show me a browser-
+connected paper mock journey. Use the Build Web Apps plugin's Frontend App
+Builder skill (build-web-apps:frontend-app-builder). Show me a browser-
 accessible preview of your changes and check desktop and mobile layouts.
 Open a PR linked to the issue and leave it open for review.
 ```
