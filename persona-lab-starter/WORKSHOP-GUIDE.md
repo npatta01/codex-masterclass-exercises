@@ -1,6 +1,6 @@
 # Persona Lab workshop guide
 
-Create your project in Step 0. For each implementation task, send the **Create the issue** and **Work on the issue** prompts one at a time. After the first prompt returns an issue URL, use it in place of `<ISSUE_URL>` in the second prompt. Use your new workshop repository for every issue and PR.
+Create your project in Step 0. For each implementation task, send the **Create the issue** and **Work on the issue** prompts one at a time in the same Codex task. Codex can use the issue it just created; you do not need to paste its URL into the follow-up prompt. Use your new workshop repository for every issue and PR.
 
 ## Step 0 — Create your project
 
@@ -71,8 +71,8 @@ Just create the issue for now and send me the link.
 ### 3. Work on the issue
 
 ```text
-Work on <ISSUE_URL> in this Codex task. Modernize only the existing landing
-page's visual design; preserve its placeholders and the connected paper-mock
+Work on the issue you just created above in this Codex task. Modernize only
+the existing landing page's visual design; preserve its placeholders and the connected paper mock
 journey. Use the frontend skill, check it in the browser on desktop and mobile,
 and open a PR linked to the issue. Leave the PR open for review.
 ```
@@ -100,7 +100,7 @@ Just create the issue for now and send me the link.
 ### 2. Work on the issue
 
 ```text
-Work on <ISSUE_URL> in this Codex task, without subagents.
+Work on the issue you just created above in this Codex task, without subagents.
 Set up the GitHub Pages workflow, check that the production build
 and repository asset paths work, and open a PR linked to the issue.
 Leave it open for review.
@@ -172,10 +172,10 @@ Just create and link the issues for now, and send me all four URLs.
 
 ### 2. Work on the issue
 
-Use the parent issue URL for `<ISSUE_URL>`. Send this in the coordinating Codex task:
+Send this follow-up in the same coordinating Codex task that created the parent issue and sub-issues:
 
 ```text
-Work on the three sub-issues linked from <ISSUE_URL>.
+Work on the three sub-issues you just created under the parent issue above.
 
 Create a separate Codex task and worktree for each one, named
 Brand identity, Clients and team, and Supporters and footer.
@@ -242,7 +242,7 @@ Just create the issue for now and send me the link.
 Send this follow-up in the same Codex task:
 
 ```text
-Work on <ISSUE_URL> using two subagents:
+Work on the issue you just created above using two subagents:
 
 - One to review mobile layout and visual consistency.
 - One to review accessibility.
