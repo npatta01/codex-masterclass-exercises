@@ -17,6 +17,10 @@ test('guide uses prepared assets instead of asking for new portrait generation',
   assert.match(guide, /public\/workshop\/content.json/);
   assert.doesNotMatch(guide, /DiceBear/);
   assert.match(guide, /Workspace and Results tasks yourself/);
+  const project = guide.indexOf('## Step 0 — Create your project');
+  const preview = guide.indexOf('### 1. Preview your new project');
+  const issue = guide.indexOf('### 2. Create the issue');
+  assert.ok(project >= 0 && project < preview && preview < issue);
 });
 test('the root opens the connected paper mock', async () => {
   const entry = await readFile(new URL('../index.html', import.meta.url), 'utf8');
