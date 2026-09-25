@@ -4,7 +4,7 @@ Each exercise has two prompts: **1. Create the issue** and **2. Work on the issu
 
 ## Start with the paper mock and prepared assets
 
-Run `npm install` and `npm run dev` inside this folder. On the local server, open:
+After Codex creates your workshop repository in Step 0, ask it to start a preview in your sandbox and send you the browser-accessible URL. Codex handles setup and the development server. Open these paths on that preview URL:
 
 - `/` (or `/workshop/mock/index.html`) — connected Landing, Workspace, and Results sketches.
 - `/workshop/index.html` — the new Persona Lab logo, character portraits, fictional client and supporter logos, and customer stories.
@@ -16,6 +16,15 @@ references; their older placeholder names are superseded by this content file.
 You do not need to upload assets, invent a byline, or use an image service.
 Choose your own website palette and typography. Keep the starter rough until
 you begin the design exercise.
+
+Copy this into Codex when you are ready to preview:
+
+```text
+Start a preview of my Persona Lab starter in the sandbox, following the
+repository's preview instructions. Check that the paper mock loads, then give
+me browser-accessible URLs for it and the prepared asset page. Keep the preview
+running while I review.
+```
 
 ## Step 0 — Create your project
 
@@ -62,7 +71,7 @@ more polished product, with a consistent theme.
 - Make the page work well on desktop and mobile.
 - Preserve the connected Landing, Workspace, and Results journey. The paper mock has no live simulation.
 - Use the frontend skill.
-- Keep this a local demo: no real model API, browser automation, sign-in,
+- Keep this a self-contained demo: no real model API, browser automation, sign-in,
   payment flow, or external data.
 - Keep the disclosure that this is a simulated-persona hypothesis, not human
   research.
@@ -92,7 +101,7 @@ I'd like the site to deploy automatically whenever changes land on main.
 - Install dependencies and build the Vite application.
 - Deploy the generated static site to GitHub Pages.
 - Configure Vite so assets work under the repository name.
-- Add a short README section explaining local development and the deployed
+- Add a short README section explaining sandbox preview and the deployed
   site.
 
 Just create the issue for now and send me the link.
@@ -208,7 +217,7 @@ The separate tasks don't need to message one another directly. In the Codex desk
 Try the same workflow with two larger pieces of the site. Create one issue
 for the Workspace overview and one for Example results, using
 `public/workshop/mock/workspace.png` and `results.png` as the references.
-Keep the sample data local and label results as simulated hypotheses.
+Keep the sample data bundled and label results as simulated hypotheses.
 
 Start a separate Codex task for each issue. Give both tasks the theme from
 your landing page, the prepared asset folder, and their own worktree.
