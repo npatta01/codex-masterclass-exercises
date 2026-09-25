@@ -1,10 +1,20 @@
 # Persona Lab workshop guide
 
-Create your project in Step 0. For each implementation task, send the **Create the issue** and **Work on the issue** prompts one at a time in the same Codex task. Codex can use the issue it just created; you do not need to paste its URL into the follow-up prompt. Use your new workshop repository for every issue and PR.
+Work through **A → E**. Copy one prompt at a time. Each letter is a workshop activity; a **Codex task** is a conversation in the app.
 
-## Step 0 — Create your project
+> Start with **A**. Return to the next activity when you are ready.
 
-Start with your own copy of the workshop app. This gives you a repository where you can create issues, review PRs, and publish the finished site.
+- **A 🧰 Set up:** Make your GitHub repo and Codex project. See the paper mock.
+- **B 🚀 Publish:** Set up GitHub Pages and CI/CD.
+- **C 🎨 Modernize:** Improve the landing page and annotate one change. **B and C can run at the same time.**
+- **D 🐾 Personalize:** Fill in the fictional company details.
+- **E 🔎 Review:** Check mobile layout and accessibility.
+
+Your **GitHub repo** holds the code and issues. Your **Codex project** points to its checkout on the workshop VM and groups your Codex tasks.
+
+## A — Set up and see the paper mock 🧰
+
+### Make your GitHub repo
 
 Copy this into Codex:
 
@@ -13,37 +23,73 @@ Take a look at this starter folder:
 
 https://github.com/npatta01/codex-masterclass-exercises/tree/main/persona-lab-starter
 
-Create a new public GitHub repository in my namespace using this folder as the
-starting point. Name it persona-lab.
+Create a public GitHub repository named persona-lab using this folder as the
+starting point. Clone it into my account on the workshop VM.
 
-If persona-lab already exists in my namespace, it's fine to delete that
-repository and recreate it from this starter. Check the exact owner and
-repository name first, and only replace that repository. I understand this
-removes its existing code, issues, and pull requests.
+If I already have a repository named persona-lab, ask me what name to use.
+Do not replace an existing repository.
 
-Do not change the application yet. Return the repository URL when finished.
+Do not change the application yet. Return the repository URL and checkout path.
 ```
 
-## Task 1 — Improve the frontend
+### Add your Codex project
 
-Modernize the existing landing page's presentation while keeping its workshop placeholders. You'll practice describing a focused visual change in a GitHub issue, then asking one Codex task to implement it and show you the result in a PR. Task 3 replaces the placeholders with the supplied company story.
+In Codex, choose **Add new project**. Select the `persona-lab` checkout on your workshop VM using the path Codex returned. Start your next Codex task from that project. [How projects work](https://learn.chatgpt.com/docs/projects).
 
-### 1. Preview your new project
+### See the paper mock
 
-In the `persona-lab` repository you created in Step 0, ask Codex to show you the starter before changing it. Copy this into Codex:
+In your new Codex project, copy this into a task:
 
 ```text
-In my new persona-lab repository, start a preview in the sandbox following
-the repository's preview instructions. Check that the connected paper mock
-loads, then give me its browser-accessible URL. Keep the preview running
-while I review.
+Start a preview of this persona-lab repository on the workshop VM, following
+its preview instructions. Check that the paper mock loads at / and give me
+its browser-accessible URL. Keep the preview running while I review.
 ```
 
-Open `/` on the preview URL to click through the Landing, Workspace, and Results paper sketches.
+Open the URL and click through **Landing → Workspace → Results**. This is the starting sketch. Save the logo, portraits, client stories, and supporters for D.
 
-Task 1 uses the sketch as a layout reference. The prepared logo, portraits, client stories, and supporters are for Task 3.
+## B — Publish with GitHub Pages 🚀
 
-### 2. Create the issue
+Start a new Codex task in your `persona-lab` project, in its own worktree. This task handles publishing. You can start C in another worktree while B is running.
+
+### Create the issue
+
+```text
+Create a GitHub issue called "Deploy Persona Lab with GitHub Pages".
+I'd like the paper-mock site to deploy automatically whenever changes land
+on main.
+
+- Add a GitHub Actions workflow that runs when changes are pushed to main.
+- Build the site and deploy the generated static output to GitHub Pages.
+- Check that paths work under the repository name and the paper mock loads.
+- Add a short README section explaining the deployed site.
+- Keep this issue about CI/CD and deployment. Do not redesign the pages or
+  replace the workshop placeholders.
+
+Just create the issue for now and send me the link.
+```
+
+### Build the publishing workflow
+
+```text
+Work on the issue you just created above in this Codex task, without subagents.
+Set up GitHub Pages and CI/CD, verify the production build and repository
+asset paths, and open a PR linked to the issue. Leave it open for review.
+Do not change the visual design or workshop content.
+```
+
+After reviewing and merging the PR, send this in the same Codex task:
+
+```text
+The PR is merged. Check the deployment and open the live site.
+Verify that the page and its assets load, then send me the URL.
+```
+
+## C — Modernize the landing page 🎨
+
+Start another Codex task in the same project, with a separate worktree. You can do this while B is running. Keep the landing page's placeholder text so D can fill it in later.
+
+### Create the issue
 
 ```text
 Create a GitHub issue called "Modernize the Persona Lab landing page".
@@ -58,87 +104,63 @@ while leaving the workshop content placeholders for later issues.
   supporter placeholders, and COMPANY_INFO_GOES_HERE. If turning the sketch
   into HTML, carry these placeholders into the new page.
 - Do not add the prepared Persona Lab logo, animal portraits, client stories,
-  team members, supporter logos, or final company copy. Those are for Task 3.
+  team members, supporter logos, or final company copy. Those are for D.
 - Do not add new sections, screens, product features, or simulation behavior.
   Keep the Landing → Workspace → Results links working and leave Workspace
   and Results for later exercises.
 - Keep any simulated-persona/not-human-research disclosure visible.
+- Leave CI/CD and GitHub Pages changes to the parallel deployment task.
 - Use the frontend skill to implement and check this visual change.
 
 Just create the issue for now and send me the link.
 ```
 
-### 3. Work on the issue
+### Modernize and preview
 
 ```text
 Work on the issue you just created above in this Codex task. Modernize only
-the existing landing page's visual design; preserve its placeholders and the connected paper mock
-journey. Use the frontend skill, check it in the browser on desktop and mobile,
-and open a PR linked to the issue. Leave the PR open for review.
+the existing landing page's visual design; preserve its placeholders and the
+connected paper mock journey. Use the frontend skill. Show me a browser-
+accessible preview of your changes and check desktop and mobile layouts.
+Open a PR linked to the issue and leave it open for review.
 ```
 
-## Task 2 — Deploy with GitHub Pages
+### Annotate one change
 
-Take one issue from implementation to a live website in a single Codex task. You'll review and merge the deployment PR, then ask Codex to check the published site.
-
-### 1. Create the issue
+Open the changed preview. Annotate one element in Codex's browser with a specific visual change you want. Send that annotation to the **same Codex task** and ask Codex to make the small change, refresh the preview, and update the same PR. Check the result yourself.
 
 ```text
-Create a GitHub issue called "Deploy Persona Lab with GitHub Pages".
-I'd like the site to deploy automatically whenever changes land on main.
-
-- Add a GitHub Actions workflow that runs when changes are pushed to main.
-- Install dependencies and build the Vite application.
-- Deploy the generated static site to GitHub Pages.
-- Configure Vite so assets work under the repository name.
-- Add a short README section explaining sandbox preview and the deployed
-  site.
-
-Just create the issue for now and send me the link.
+Make the specific visual change I annotated in the preview. Keep the other
+pages and placeholders as they are. Show me the updated preview, check the
+change on mobile, and update the same PR.
 ```
 
-### 2. Work on the issue
+Review both PRs. Merge B first. Then ask the C task to sync with `main`, check its preview and build again, and update its PR before merging.
 
-```text
-Work on the issue you just created above in this Codex task, without subagents.
-Set up the GitHub Pages workflow, check that the production build
-and repository asset paths work, and open a PR linked to the issue.
-Leave it open for review.
-```
+## D — Personalize the company 🐾
 
-After reviewing and merging the PR, send:
-
-```text
-The PR is merged. Check the deployment and open the live site.
-Verify that the page and its assets load, then send me the URL.
-```
-
-## Task 3 — Create and implement parallel issues
-
-Give the fictional company a brand, clients, team, and supporters. You'll split the work into three GitHub issues and use separate Codex tasks, each with its own worktree and PR. Your original task coordinates their progress and passes the brand decisions to the other tasks.
+Give the fictional company a brand, clients, team, and supporters. Create one parent issue and three smaller issues. A coordinating Codex task will send each smaller issue to its own Codex task and worktree.
 
 The content and assets are already prepared. This task fills in the brand,
-clients, team, and supporters left as placeholders in Task 1.
+clients, team, and supporters left as placeholders in C.
 
-### 1. Create the issue
+### Create the issues
 
 ```text
 I'd like to replace the landing page placeholders with a playful
 fictional company. Create a parent GitHub issue called
-"Personalize the Persona Lab company story" and three linked sub-issues so we
-can
-work on them separately. Keep the connected paper prototype and research
-disclosure intact.
+"Personalize the Persona Lab company story" and three linked sub-issues.
+Keep the connected paper prototype and research disclosure intact.
 
 Here's what I'd like in each sub-issue:
 
-1. Create a brand identity
+Brand identity
    - Use the Persona Lab name, logo, and tagline supplied in
      public/workshop/content.json and public/workshop/logos/persona-lab.svg.
    - Choose a simple color palette.
    - Keep the design intentionally appropriate for a workshop prototype.
 
-2. Add fictional clients and teammates
+Clients and teammates
 
    - Use Acorn Commerce, Pawprint, Slow & Steady, and Tall Order.
      Their logos, animal portraits, and absurd Persona Lab success stories
@@ -155,7 +177,7 @@ Here's what I'd like in each sub-issue:
    - Keep "Fictional customers. Wildly fictional results." beside the quotes.
    - Preserve the existing section structure.
 
-3. Add fictional supporters and company footer
+Supporters and company footer
 
    - Replace the supporter placeholders with `Placeholder Partners`, `Venture
      Maybe`, and `The Hypothesis Fund`.
@@ -170,7 +192,7 @@ Write these as clear, readable issues with a short checklist for each.
 Just create and link the issues for now, and send me all four URLs.
 ```
 
-### 2. Work on the issue
+### Work on the issues
 
 Send this follow-up in the same coordinating Codex task that created the parent issue and sub-issues:
 
@@ -216,11 +238,11 @@ check the Landing → Workspace → Results → Workspace journey.
 You write the issue-creation and follow-up prompts this time. No backend,
 live persona execution, or real research is required.
 
-## Task 4 — Review the UI with subagents
+## E — Review the UI 🔎
 
 After improving the frontend, give it a mobile and accessibility review. You'll use one Codex task with two subagents to investigate different parts of the UI. The main agent brings their findings together, makes the fixes, and opens one PR.
 
-### 1. Create the issue
+### Create the issue
 
 ```text
 Create a GitHub issue called "Make the site work better on mobile and easier
@@ -237,7 +259,7 @@ focused on the UI; keep results clearly labeled as synthetic examples.
 Just create the issue for now and send me the link.
 ```
 
-### 2. Work on the issue
+### Review and fix
 
 Send this follow-up in the same Codex task:
 
