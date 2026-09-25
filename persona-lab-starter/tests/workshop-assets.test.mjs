@@ -31,6 +31,8 @@ test('guide uses prepared assets instead of asking for new portrait generation',
   assert.match(taskTwo, /Do not add the prepared Persona Lab logo/);
   assert.match(taskTwo, /Show me a browser-/);
   assert.match(taskTwo, /Annotate one element/);
+  assert.match(taskTwo, /build-web-apps:frontend-app-builder/);
+  assert.match(guide, /🎉 \*\*Your site is live!\*\*/);
   assert.doesNotMatch(guide, /<ISSUE_URL>/);
   assert.match(guide, /Work on the issue you just created above in this Codex task/);
   assert.doesNotMatch(guide, /^## (?:Step|Task) \d/m);
