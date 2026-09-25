@@ -1,30 +1,6 @@
 # Persona Lab workshop guide
 
-Each exercise has two prompts: **1. Create the issue** and **2. Work on the issue**. Send them one at a time. After the first prompt returns an issue URL, use it in place of `<ISSUE_URL>` in the second prompt. Use your new workshop repository for every issue and PR.
-
-## Start with the paper mock and prepared assets
-
-After Codex creates your workshop repository in Step 0, ask it to start a preview in your sandbox and send you the browser-accessible URL. Codex handles setup and the development server. Open these paths on that preview URL:
-
-- `/` (or `/workshop/mock/index.html`) — connected Landing, Workspace, and Results sketches.
-- `/workshop/index.html` — the new Persona Lab logo, character portraits, fictional client and supporter logos, and customer stories.
-
-All files are included under `public/workshop/`. Read
-`public/workshop/ASSETS.md` for the asset map and
-`public/workshop/content.json` for the supplied copy. The sketches are layout
-references; their older placeholder names are superseded by this content file.
-You do not need to upload assets, invent a byline, or use an image service.
-Choose your own website palette and typography. Keep the starter rough until
-you begin the design exercise.
-
-Copy this into Codex when you are ready to preview:
-
-```text
-Start a preview of my Persona Lab starter in the sandbox, following the
-repository's preview instructions. Check that the paper mock loads, then give
-me browser-accessible URLs for it and the prepared asset page. Keep the preview
-running while I review.
-```
+Create your project in Step 0. For each implementation task, send the **Create the issue** and **Work on the issue** prompts one at a time. After the first prompt returns an issue URL, use it in place of `<ISSUE_URL>` in the second prompt. Use your new workshop repository for every issue and PR.
 
 ## Step 0 — Create your project
 
@@ -52,7 +28,25 @@ Do not change the application yet. Return the repository URL when finished.
 
 Turn the rough starter into a more polished website. You'll practice describing a visual change in a GitHub issue, then asking one Codex task to implement it and show you the result in a PR.
 
-### 1. Create the issue
+### 1. Preview your new project
+
+In the `persona-lab` repository you created in Step 0, ask Codex to show you the starter before changing it. Copy this into Codex:
+
+```text
+In my new persona-lab repository, start a preview in the sandbox following
+the repository's preview instructions. Check that the paper mock loads, then
+give me browser-accessible URLs for it and the prepared asset page. Keep the
+preview running while I review.
+```
+
+On the preview URL, open:
+
+- `/` — click through the Landing, Workspace, and Results paper sketches.
+- `/workshop/index.html` — view the supplied logo, portraits, fictional client stories, and supporter logos.
+
+The asset map is in `public/workshop/ASSETS.md`, and the copy is in `public/workshop/content.json`. The sketches are layout references; the content file supersedes their older placeholder names. You do not need to upload assets, invent a byline, or use an image service. Choose your own palette and typography when you begin the design exercise.
+
+### 2. Create the issue
 
 ```text
 Create a GitHub issue called "Improve the Persona Lab frontend".
@@ -79,7 +73,7 @@ more polished product, with a consistent theme.
 Just create the issue for now and send me the link.
 ```
 
-### 2. Work on the issue
+### 3. Work on the issue
 
 ```text
 Work on <ISSUE_URL> in this Codex task. Use the frontend skill to
