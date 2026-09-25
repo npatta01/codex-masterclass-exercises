@@ -47,9 +47,11 @@ change the files. Give me the full checkout path.
 
 In Codex, choose **Add new project**. Select the new repository checkout on your workshop VM using the path from the clone step. Start your next Codex task from that project. [How projects work](https://learn.chatgpt.com/docs/projects).
 
+**Before starting each new task in this project:** choose `persona-lab` → **New remote worktree** → `main` in the Codex task bar. This runs the task on the workshop VM in its own checkout. Keep the issue and follow-up prompts for one activity in that same task.
+
 ### See the paper mock
 
-In your new Codex project, copy this into a task:
+Start a new remote worktree task in your Codex project, then copy this prompt:
 
 ```text
 Start a preview of this persona-lab repository on the workshop VM, following
@@ -61,7 +63,7 @@ Open the URL and click through **Landing → Workspace → Results**. This is th
 
 ## B — Publish with GitHub Pages 🚀
 
-Start a new Codex task in your `persona-lab` project, in its own worktree. This task handles publishing. You can start C in another worktree while B is running.
+Start a new Codex task in your `persona-lab` project with **New remote worktree** selected. This task handles publishing. You can start C in another remote worktree while B is running.
 
 ### Create the issue
 
@@ -98,7 +100,7 @@ Verify that the page and its assets load, then send me the URL.
 
 ## C — Modernize the landing page 🎨
 
-Start another Codex task in the same project, with a separate worktree. You can do this while B is running. Keep the landing page's placeholder text so D can fill it in later.
+Start another Codex task in the same project with **New remote worktree** selected. You can do this while B is running. Keep the landing page's placeholder text so D can fill it in later.
 
 ### Create the issue
 
@@ -150,7 +152,7 @@ Review both PRs. Merge B first. Then ask the C task to sync with `main`, check i
 
 ## D — Personalize the company 🐾
 
-Give the fictional company a brand, clients, team, and supporters. Create one parent issue and three smaller issues. A coordinating Codex task will send each smaller issue to its own Codex task and worktree.
+Give the fictional company a brand, clients, team, and supporters. Start a new remote worktree task to coordinate one parent issue and three smaller issues. The coordinating task sends each smaller issue to its own remote worktree task.
 
 The content and assets are already prepared. This task fills in the brand,
 clients, team, and supporters left as placeholders in C.
@@ -210,7 +212,7 @@ Send this follow-up in the same coordinating Codex task that created the parent 
 ```text
 Work on the three sub-issues you just created under the parent issue above.
 
-Create a separate Codex task and worktree for each one, named
+Create a separate Codex task with a new remote worktree for each one, named
 Brand identity, Clients and team, and Supporters and footer.
 
 Give each task its issue URL and ask it to implement that issue,
@@ -240,7 +242,7 @@ for the Workspace overview and one for Example results, using
 `public/workshop/mock/workspace.png` and `results.png` as the references.
 Keep the sample data bundled and label results as simulated hypotheses.
 
-Start a separate Codex task for each issue. Give both tasks the theme from
+Start a separate Codex task with a new remote worktree for each issue. Give both tasks the theme from
 your landing page, the prepared asset folder, and their own worktree.
 Ask each to own its page and avoid changing shared navigation
 or global styles without coordinating. Review their PRs together and
@@ -251,7 +253,7 @@ live persona execution, or real research is required.
 
 ## E — Review the UI 🔎
 
-After improving the frontend, give it a mobile and accessibility review. You'll use one Codex task with two subagents to investigate different parts of the UI. The main agent brings their findings together, makes the fixes, and opens one PR.
+After improving the frontend, start a new remote worktree task for a mobile and accessibility review. It uses two subagents to inspect different parts of the UI. The main task makes the fixes and opens one PR.
 
 ### Create the issue
 

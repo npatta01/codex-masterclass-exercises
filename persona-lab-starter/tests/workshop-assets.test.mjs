@@ -25,6 +25,7 @@ test('guide uses prepared assets instead of asking for new portrait generation',
   const modernization = guide.indexOf('## C — Modernize the landing page');
   assert.ok(project >= 0 && project < clone && clone < codexProject && codexProject < preview && preview < deployment && deployment < modernization);
   assert.match(guide, /Check that the clone's origin points to my new GitHub repository/);
+  assert.match(guide, /choose `persona-lab` → \*\*New remote worktree\*\* → `main`/);
   const taskTwo = guide.split('## C — Modernize the landing page')[1].split('## D — Personalize the company')[0];
   assert.match(taskTwo, /preserve its placeholders/i);
   assert.match(taskTwo, /Do not add the prepared Persona Lab logo/);
