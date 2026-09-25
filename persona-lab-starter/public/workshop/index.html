@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Persona Lab — prepared workshop assets</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#faf9f5;color:#292929;font:16px/1.55 system-ui}main,nav{max-width:1100px;margin:auto;padding:24px}nav{display:flex;gap:22px;flex-wrap:wrap;border-bottom:1px solid #bbb}a{color:inherit}h1{font-size:32px}h2{margin-top:50px}p{max-width:75ch}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px}article{border:1px solid #bbb;padding:20px;background:#fff;color:#292929}.portrait{display:block;width:100%;height:220px;object-fit:contain}.logo{display:block;width:100%;height:90px;object-fit:contain}.brand{max-width:450px}blockquote{margin:20px 0}button{font:inherit;padding:8px 14px}body.dark{background:#252c36;color:#fff}body.dark article{background:#eee}small{display:block}footer{padding:40px 0}code{overflow-wrap:anywhere}
+</style>
+<nav><a href="mock/index.html#landing">← Clickable paper mock</a><a href="content.json">Supplied copy (JSON)</a><a href="instructions.html">Workshop instructions</a></nav>
+<main><h1>Everything is supplied. The design is yours.</h1><p>This is an asset shelf, not the target website design. Use the fictional company copy, animal portraits, and logos below to transform the rough paper mock into your own website.</p><button id="theme">Toggle gallery background</button>
+<section id="brand"></section><h2>The founding team</h2><div id="team" class="grid"></div>
+<h2>Customer success stories</h2><p>Fictional customers. Wildly fictional results.</p><div id="customers" class="grid"></div>
+<h2>Fictional supporters</h2><div id="supporters" class="grid"></div>
+<h2>More masterclass characters</h2><div id="extras" class="grid"></div>
+<footer>Logos are editable SVGs with transparent backgrounds. Extra animal cutouts have transparency; the three founding-team portraits retain cream backgrounds. Keep or frame those intentionally. No real endorsements or investment implied.</footer></main>
+<script>
+document.querySelector('#theme').onclick=()=>document.body.classList.toggle('dark');
+fetch('content.json').then(r=>{if(!r.ok)throw Error('Content could not load');return r.json()}).then(d=>{
+const img=(src,alt,cls)=>`<img class="${cls}" src="${src}" alt="${alt}" loading="lazy">`;
+document.querySelector('#brand').innerHTML=`<h2>New brand logo</h2>${img(d.brand.logo,'Persona Lab logo','logo brand')}<p>${d.brand.tagline}</p><p>${d.brand.description}</p><a href="${d.brand.logo}" download>Download editable logo</a><p>${d.disclosure}</p>`;
+document.querySelector('#team').innerHTML=d.team.map(t=>`<article>${img(t.image,t.character,'portrait')}<h3>${t.name}</h3><p>${t.role}</p><a href="${t.image}" download>Download portrait</a></article>`).join('');
+document.querySelector('#customers').innerHTML=d.customers.map(c=>`<article>${img(c.logo,c.company+' fictional logo','logo')}${img(c.image,c.character,'portrait')}<blockquote>“${c.quote}”</blockquote><a href="${c.logo}" download>Logo</a> · <a href="${c.image}" download>Character</a></article>`).join('');
+document.querySelector('#supporters').innerHTML=d.supporters.map(s=>`<article>${img(s.logo,s.name+' fictional logo','logo')}<a href="${s.logo}" download>Download logo</a></article>`).join('');
+document.querySelector('#extras').innerHTML=d.extraCharacters.map(a=>`<article>${img('characters/'+a+'.png',a+' masterclass character','portrait')}<a href="characters/${a}.png" download>Download ${a}</a></article>`).join('');
+}).catch(e=>{document.querySelector('#brand').textContent=e.message});
+</script></html>

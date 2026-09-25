@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Persona Lab — clickable paper prototype</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#ededeb;color:#444;font:14px system-ui}nav{position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:12px 20px;background:#fafafa;border-bottom:1px solid #ccc}nav span{margin-right:auto}a{color:inherit}nav a[aria-current=page]{font-weight:700;text-decoration:underline}main{max-width:900px;margin:18px auto 40px}.sheet{position:relative}img{display:block;width:100%;height:auto}.hotspot{position:absolute;display:block;border:2px solid transparent;border-radius:3px}.hotspot:hover,.hotspot:focus-visible{border-color:#555;background:#ffffff45;outline:2px dashed #555;outline-offset:2px}.hint{padding:0 16px;color:#666;text-align:center}footer{text-align:center;padding:16px}button{font:inherit}
+</style>
+<nav aria-label="Prototype pages"><span>Paper prototype · click the sketched buttons</span><a href="#landing">Landing</a><a href="#workspace">Workspace</a><a href="#results">Results</a></nav>
+<p class="hint"><a href="../index.html">Prepared assets + new brand logo</a> · <a href="../instructions.html">Workshop instructions</a><br>Layout sketch only. Use the supplied asset pack for the updated team, branding, and customer stories.</p>
+<main id="preview"></main>
+<footer>Concept preview · fictional content and synthetic sample results</footer>
+<script>
+const pages={
+landing:{image:'landing.png',alt:'Pencil sketch landing page with product introduction, clients, team and supporters.',links:[['workspace','Open workspace',77,4.5,18,3],['workspace','Open workspace',4,20.6,23,3.5],['workspace','View workspace preview',5,47,43,12],['results','View results preview',51,47,43,12]]},
+workspace:{image:'workspace.png',alt:'Pencil sketch of Acme Market workspace showing six pages, a sample task, and recent activity.',links:[['landing','Return to landing page',5,4.5,28,4],['results','Open results',4,24.5,18,4],['results','View example results',28,57,33,5]]},
+results:{image:'results.png',alt:'Pencil sketch sample results with three journey steps and a possible friction finding. Synthetic example, not human research.',links:[['landing','Return to landing page',6,5,28,5],['workspace','Back to workspace',6,11,36,5],['workspace','Back to overview',6,89,42,6]]}
+};
+function render(){let key=location.hash.slice(1);if(!pages[key])key='landing';const p=pages[key];document.getElementById('preview').innerHTML='<div class="sheet"><img src="'+p.image+'" alt="'+p.alt+'">'+p.links.map(([target,label,x,y,w,h])=>'<a class="hotspot" href="#'+target+'" aria-label="'+label+'" title="'+label+'" style="left:'+x+'%;top:'+y+'%;width:'+w+'%;height:'+h+'%"></a>').join('')+'</div>';document.querySelectorAll('nav a').forEach(a=>{if(a.hash==='#'+key)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});window.scrollTo(0,0)}
+addEventListener('hashchange',render);render();
+</script>
+</html>
