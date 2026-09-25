@@ -4,7 +4,7 @@ Work through **A → E**. Copy one prompt at a time. Each letter is a workshop a
 
 > Start with **A**. Return to the next activity when you are ready.
 
-- **A 🧰 Set up:** Make your GitHub repo and Codex project. See the paper mock.
+- **A 🧰 Set up:** Make your GitHub repo, clone it on the workshop VM, add the Codex project, and see the paper mock.
 - **B 🚀 Publish:** Set up GitHub Pages and CI/CD.
 - **C 🎨 Modernize:** Improve the landing page and annotate one change. **B and C can run at the same time.**
 - **D 🐾 Personalize:** Fill in the fictional company details.
@@ -24,17 +24,28 @@ Take a look at this starter folder:
 https://github.com/npatta01/codex-masterclass-exercises/tree/main/persona-lab-starter
 
 Create a public GitHub repository named persona-lab using this folder as the
-starting point. Clone it into my account on the workshop VM.
+starting point.
 
 If I already have a repository named persona-lab, ask me what name to use.
 Do not replace an existing repository.
 
-Do not change the application yet. Return the repository URL and checkout path.
+Do not change the application yet. Return the new repository URL.
+```
+
+### Clone your new repo on the workshop VM
+
+After Codex returns the new GitHub URL, send this in the **same Codex task**:
+
+```text
+Clone the GitHub repository you just created into my account on the workshop
+VM. Use my new repository, not the codex-masterclass-exercises source repo.
+Check that the clone's origin points to my new GitHub repository. Do not
+change the files. Give me the full checkout path.
 ```
 
 ### Add your Codex project
 
-In Codex, choose **Add new project**. Select the `persona-lab` checkout on your workshop VM using the path Codex returned. Start your next Codex task from that project. [How projects work](https://learn.chatgpt.com/docs/projects).
+In Codex, choose **Add new project**. Select the new repository checkout on your workshop VM using the path from the clone step. Start your next Codex task from that project. [How projects work](https://learn.chatgpt.com/docs/projects).
 
 ### See the paper mock
 
