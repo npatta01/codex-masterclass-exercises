@@ -20,10 +20,10 @@ you begin the design exercise.
 Copy this into Codex when you are ready to preview:
 
 ```text
-Start a preview of my Persona Lab starter in the sandbox. Install dependencies
-and run the development server as needed, following the repository's preview
-instructions. Check that the paper mock loads, then give me a browser-accessible
-URL for it and the prepared asset page. Keep the preview running while I review.
+Start a preview of my Persona Lab starter in the sandbox, following the
+repository's preview instructions. Check that the paper mock loads, then give
+me browser-accessible URLs for it and the prepared asset page. Keep the preview
+running while I review.
 ```
 
 ## Step 0 — Create your project

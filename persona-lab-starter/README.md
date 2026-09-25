@@ -8,7 +8,7 @@ Participants turn three connected paper sketches (Landing, Workspace, and Result
 
 ## Preview in your Codex sandbox
 
-Ask Codex to install dependencies, start the development server in your sandbox, and return a browser-accessible preview URL. The repository's [agent guidance](AGENTS.md) describes the workshop VM preview setup.
+Ask Codex to start a preview in your sandbox and return a browser-accessible URL. The repository's [agent guidance](AGENTS.md) describes the workshop VM preview setup.
 
 ```text
 Start a preview of this Persona Lab starter in my sandbox. Follow the
