@@ -1,40 +1,42 @@
 # Persona Lab workshop guide
 
-Use one GitHub repository and one Codex project for this exercise. A **Codex project** groups tasks around the checkout on your workshop VM; a **GitHub repository** stores the code, issues, and pull requests. Create them in Task 0. Then use separate Codex tasks for deployment and visual modernization. Within each task, send the issue-creation and implementation prompts one at a time in the same conversation.
+Work through **A → E**. Copy one prompt at a time. Each letter is a workshop activity; a **Codex task** is a conversation in the app.
 
-- **Task 0:** Create the repository and Codex project; preview the paper mock.
-- **Tasks 1 and 2:** Run GitHub Pages/CI and landing-page modernization in parallel Codex tasks.
-- **Task 3:** Fill in the fictional company placeholders.
-- **Task 4:** Review mobile usability and accessibility.
+> Start with **A**. Return to the next activity when you are ready.
 
-## Task 0 — Create your project and preview the paper mock
+- **A 🧰 Set up:** Make your GitHub repo and Codex project. See the paper mock.
+- **B 🚀 Publish:** Set up GitHub Pages and CI/CD.
+- **C 🎨 Modernize:** Improve the landing page and annotate one change. **B and C can run at the same time.**
+- **D 🐾 Personalize:** Fill in the fictional company details.
+- **E 🔎 Review:** Check mobile layout and accessibility.
 
-### 1. Create your GitHub repository
+Your **GitHub repo** holds the code and issues. Your **Codex project** points to its checkout on the workshop VM and groups your Codex tasks.
 
-Start with your own copy of the workshop starter. Copy this into Codex:
+## A — Set up and see the paper mock 🧰
+
+### Make your GitHub repo
+
+Copy this into Codex:
 
 ```text
 Take a look at this starter folder:
 
 https://github.com/npatta01/codex-masterclass-exercises/tree/main/persona-lab-starter
 
-Create a new public GitHub repository in my namespace using this folder as the
-starting point. Name it persona-lab. Clone my new repository into my account
-on the workshop VM and tell me the checkout path.
+Create a public GitHub repository named persona-lab using this folder as the
+starting point. Clone it into my account on the workshop VM.
 
-If persona-lab already exists in my namespace, it's fine to delete that
-repository and recreate it from this starter. Check the exact owner and
-repository name first, and only replace that repository. I understand this
-removes its existing code, issues, and pull requests.
+If I already have a repository named persona-lab, ask me what name to use.
+Do not replace an existing repository.
 
 Do not change the application yet. Return the repository URL and checkout path.
 ```
 
-### 2. Add the Codex project
+### Add your Codex project
 
-In Codex, choose **Add new project** and select the `persona-lab` checkout on your workshop VM using the path returned above. Start the next Codex task inside that project. The GitHub repository and Codex project are separate: the project points Codex at the repository checkout. See [Projects and chats](https://learn.chatgpt.com/docs/projects) if you need the app's project controls.
+In Codex, choose **Add new project**. Select the `persona-lab` checkout on your workshop VM using the path Codex returned. Start your next Codex task from that project. [How projects work](https://learn.chatgpt.com/docs/projects).
 
-### 3. Preview the paper mock
+### See the paper mock
 
 In your new Codex project, copy this into a task:
 
@@ -44,13 +46,13 @@ its preview instructions. Check that the paper mock loads at / and give me
 its browser-accessible URL. Keep the preview running while I review.
 ```
 
-Open the URL and click through **Landing → Workspace → Results**. This is the rough starting point; do not change it yet. The prepared logo, portraits, client stories, and supporters are for Task 3.
+Open the URL and click through **Landing → Workspace → Results**. This is the starting sketch. Save the logo, portraits, client stories, and supporters for D.
 
-## Task 1 — Deploy with GitHub Pages and CI/CD
+## B — Publish with GitHub Pages 🚀
 
-After seeing the paper mock, start a **new Codex task in the persona-lab project**, using its own worktree. This task owns the deployment workflow and build configuration. Task 2 can run in parallel in a different worktree.
+Start a new Codex task in your `persona-lab` project, in its own worktree. This task handles publishing. You can start C in another worktree while B is running.
 
-### 1. Create the issue
+### Create the issue
 
 ```text
 Create a GitHub issue called "Deploy Persona Lab with GitHub Pages".
@@ -67,7 +69,7 @@ on main.
 Just create the issue for now and send me the link.
 ```
 
-### 2. Work on the issue
+### Build the publishing workflow
 
 ```text
 Work on the issue you just created above in this Codex task, without subagents.
@@ -76,18 +78,18 @@ asset paths, and open a PR linked to the issue. Leave it open for review.
 Do not change the visual design or workshop content.
 ```
 
-After reviewing and merging the deployment PR, send in this same task:
+After reviewing and merging the PR, send this in the same Codex task:
 
 ```text
 The PR is merged. Check the deployment and open the live site.
 Verify that the page and its assets load, then send me the URL.
 ```
 
-## Task 2 — Modernize the landing page
+## C — Modernize the landing page 🎨
 
-Start a **separate Codex task in the same project and a separate worktree** while Task 1 works on CI/CD. This task owns only the landing page's visual design. Keep its workshop placeholders so Task 3 can fill in the company story later.
+Start another Codex task in the same project, with a separate worktree. You can do this while B is running. Keep the landing page's placeholder text so D can fill it in later.
 
-### 1. Create the issue
+### Create the issue
 
 ```text
 Create a GitHub issue called "Modernize the Persona Lab landing page".
@@ -102,7 +104,7 @@ while leaving the workshop content placeholders for later issues.
   supporter placeholders, and COMPANY_INFO_GOES_HERE. If turning the sketch
   into HTML, carry these placeholders into the new page.
 - Do not add the prepared Persona Lab logo, animal portraits, client stories,
-  team members, supporter logos, or final company copy. Those are for Task 3.
+  team members, supporter logos, or final company copy. Those are for D.
 - Do not add new sections, screens, product features, or simulation behavior.
   Keep the Landing → Workspace → Results links working and leave Workspace
   and Results for later exercises.
@@ -113,7 +115,7 @@ while leaving the workshop content placeholders for later issues.
 Just create the issue for now and send me the link.
 ```
 
-### 2. Work on the issue and show a preview
+### Modernize and preview
 
 ```text
 Work on the issue you just created above in this Codex task. Modernize only
@@ -123,7 +125,7 @@ accessible preview of your changes and check desktop and mobile layouts.
 Open a PR linked to the issue and leave it open for review.
 ```
 
-### 3. Annotate and make one change
+### Annotate one change
 
 Open the changed preview. Annotate one element in Codex's browser with a specific visual change you want. Send that annotation to the **same Codex task** and ask Codex to make the small change, refresh the preview, and update the same PR. Check the result yourself.
 
@@ -133,34 +135,32 @@ pages and placeholders as they are. Show me the updated preview, check the
 change on mobile, and update the same PR.
 ```
 
-The deployment and modernization tasks can run at the same time because they own different files. Review both PRs. Merge the deployment PR first; then ask the modernization task to sync with `main`, verify its preview and build again, and update its PR before merging.
+Review both PRs. Merge B first. Then ask the C task to sync with `main`, check its preview and build again, and update its PR before merging.
 
-## Task 3 — Create and implement parallel issues
+## D — Personalize the company 🐾
 
-Give the fictional company a brand, clients, team, and supporters. You'll split the work into three GitHub issues and use separate Codex tasks, each with its own worktree and PR. A coordinating Codex task tracks their progress and passes brand decisions to the other tasks.
+Give the fictional company a brand, clients, team, and supporters. Create one parent issue and three smaller issues. A coordinating Codex task will send each smaller issue to its own Codex task and worktree.
 
 The content and assets are already prepared. This task fills in the brand,
-clients, team, and supporters left as placeholders in Task 2.
+clients, team, and supporters left as placeholders in C.
 
-### 1. Create the issue
+### Create the issues
 
 ```text
 I'd like to replace the landing page placeholders with a playful
 fictional company. Create a parent GitHub issue called
-"Personalize the Persona Lab company story" and three linked sub-issues so we
-can
-work on them separately. Keep the connected paper prototype and research
-disclosure intact.
+"Personalize the Persona Lab company story" and three linked sub-issues.
+Keep the connected paper prototype and research disclosure intact.
 
 Here's what I'd like in each sub-issue:
 
-1. Create a brand identity
+Brand identity
    - Use the Persona Lab name, logo, and tagline supplied in
      public/workshop/content.json and public/workshop/logos/persona-lab.svg.
    - Choose a simple color palette.
    - Keep the design intentionally appropriate for a workshop prototype.
 
-2. Add fictional clients and teammates
+Clients and teammates
 
    - Use Acorn Commerce, Pawprint, Slow & Steady, and Tall Order.
      Their logos, animal portraits, and absurd Persona Lab success stories
@@ -177,7 +177,7 @@ Here's what I'd like in each sub-issue:
    - Keep "Fictional customers. Wildly fictional results." beside the quotes.
    - Preserve the existing section structure.
 
-3. Add fictional supporters and company footer
+Supporters and company footer
 
    - Replace the supporter placeholders with `Placeholder Partners`, `Venture
      Maybe`, and `The Hypothesis Fund`.
@@ -192,7 +192,7 @@ Write these as clear, readable issues with a short checklist for each.
 Just create and link the issues for now, and send me all four URLs.
 ```
 
-### 2. Work on the issue
+### Work on the issues
 
 Send this follow-up in the same coordinating Codex task that created the parent issue and sub-issues:
 
@@ -238,11 +238,11 @@ check the Landing → Workspace → Results → Workspace journey.
 You write the issue-creation and follow-up prompts this time. No backend,
 live persona execution, or real research is required.
 
-## Task 4 — Review the UI with subagents
+## E — Review the UI 🔎
 
 After improving the frontend, give it a mobile and accessibility review. You'll use one Codex task with two subagents to investigate different parts of the UI. The main agent brings their findings together, makes the fixes, and opens one PR.
 
-### 1. Create the issue
+### Create the issue
 
 ```text
 Create a GitHub issue called "Make the site work better on mobile and easier
@@ -259,7 +259,7 @@ focused on the UI; keep results clearly labeled as synthetic examples.
 Just create the issue for now and send me the link.
 ```
 
-### 2. Work on the issue
+### Review and fix
 
 Send this follow-up in the same Codex task:
 

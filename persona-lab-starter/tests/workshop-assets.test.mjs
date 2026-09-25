@@ -17,19 +17,20 @@ test('guide uses prepared assets instead of asking for new portrait generation',
   assert.match(guide, /public\/workshop\/content.json/);
   assert.doesNotMatch(guide, /DiceBear/);
   assert.match(guide, /Workspace and Results tasks yourself/);
-  const project = guide.indexOf('## Task 0 — Create your project');
-  const codexProject = guide.indexOf('### 2. Add the Codex project');
-  const preview = guide.indexOf('### 3. Preview the paper mock');
-  const deployment = guide.indexOf('## Task 1 — Deploy with GitHub Pages and CI/CD');
-  const modernization = guide.indexOf('## Task 2 — Modernize the landing page');
+  const project = guide.indexOf('## A — Set up and see the paper mock');
+  const codexProject = guide.indexOf('### Add your Codex project');
+  const preview = guide.indexOf('### See the paper mock');
+  const deployment = guide.indexOf('## B — Publish with GitHub Pages');
+  const modernization = guide.indexOf('## C — Modernize the landing page');
   assert.ok(project >= 0 && project < codexProject && codexProject < preview && preview < deployment && deployment < modernization);
-  const taskTwo = guide.split('## Task 2 — Modernize the landing page')[1].split('## Task 3 — Create and implement parallel issues')[0];
+  const taskTwo = guide.split('## C — Modernize the landing page')[1].split('## D — Personalize the company')[0];
   assert.match(taskTwo, /preserve its placeholders/i);
   assert.match(taskTwo, /Do not add the prepared Persona Lab logo/);
   assert.match(taskTwo, /Show me a browser-/);
   assert.match(taskTwo, /Annotate one element/);
   assert.doesNotMatch(guide, /<ISSUE_URL>/);
   assert.match(guide, /Work on the issue you just created above in this Codex task/);
+  assert.doesNotMatch(guide, /^## (?:Step|Task) \d/m);
 });
 test('the root opens the connected paper mock', async () => {
   const entry = await readFile(new URL('../index.html', import.meta.url), 'utf8');
